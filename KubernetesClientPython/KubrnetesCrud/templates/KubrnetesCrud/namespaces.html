@@ -1,0 +1,8 @@
+{% include "KubrnetesCrud/base.html" %}
+
+<div style="text-align: center;width: 50%;background-color: bisque;margin-left: 25%;margin-bottom: 50px; ">
+    <h1 style="color: coral;"> All namespaces are as below</h1>
+    {% for i in data %} 
+            <h2>{{ i }} </h2>
+    {% endfor %}
+</div> 

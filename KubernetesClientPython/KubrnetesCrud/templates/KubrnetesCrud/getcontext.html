@@ -1,0 +1,54 @@
+{% include "KubrnetesCrud/base.html" %}
+<div style="text-align: center;width: 50%;background-color: bisque;margin-left: 25%;margin-bottom: 50px; ">
+    <h1 style="color: coral;"> All Contexts are as below</h1>
+    <table border="1" style="border-collapse: collapse;margin: 0 auto;margin-bottom: 20px;">
+        <tr>
+            <th>Name</th>
+            <th>Cluster</th>
+            <th>User</th>
+
+            
+        </tr>
+    
+        {% for i in data %} 
+        <tr>
+            <td>{{ i.name }}</td>
+            {% for j in i.values%}
+        
+            <td>{{j.cluster}}</td>
+            <td>{{ j.user }}</td>    
+                
+            
+        
+            {% endfor%}
+            
+        </tr>
+        {% endfor %}
+    </table>   
+</div>
+
+<div style="text-align: center;">
+    {% for i in data1 %} 
+            
+        <span style="color:darkcyan;font-size: large;">
+            Current Context is 
+        
+        {% for j in i.values%}
+        <b>{{j.cluster}}</b>
+            {% endfor%}
+        
+        {% endfor %}
+    <br>
+    Select from below to change Context
+    <form action="/changecontexts" method="get" name="myForm" enctype="multipart/form-data">
+        <select name="contexts">
+            {% for i in data %} 
+                <option value={{i.name}}>{{i.name}}</option>
+            {% endfor %}
+        
+          </select>
+          <button type="submit">Apply</button>
+    </form>
+</span>
+    
+</div>
