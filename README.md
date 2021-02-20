@@ -1,6 +1,6 @@
 # WebKube
 First create a docker image using
-sudo docker build -t <dockerhub-repo-name>/<image-name>:tag
+sudo docker build -t <dockerhub-repo-name>/<image-name>:tag \n
 eg : sudo docker build -t tanmay8898/webkube:v1
   
 Run the docker image on local machine 
