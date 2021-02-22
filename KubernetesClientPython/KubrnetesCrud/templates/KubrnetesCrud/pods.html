@@ -1,0 +1,33 @@
+{% include "KubrnetesCrud/base.html" %}
+<div style="text-align: center;width: 50%;background-color: bisque;margin-left: 25%;margin-bottom: 50px; ">
+    <h1 style="color: coral;"> All pods are as below</h1>
+    <form action="/getpoddetail" method="get" name="myForm" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <th>Pod Name</th>
+                <th>Restart</th>
+                <th>Pod IP's</th>
+                <th>Pod Status</th>
+                <th>Describe</th>
+                <th>Log</th>
+            </tr>
+        {% for i in data %} 
+            <tr>
+                <td>{{i.2}}</td>
+                <td>{{i.4}}</td>
+                <td>{{i.0}}</td>
+                <td>{{i.3}}</td>
+                <td><input type="submit" name="describe" value="View">
+                    <input type="hidden" name="podname" value="{{i.2}}">
+                    <input type="hidden" name="ns" value="{{i.1}}"> 
+                </td>
+                <td><input type="submit" name="describe" value="View">
+                    <input type="hidden" name="podname" value="{{i.2}}">
+                    <input type="hidden" name="ns" value="{{i.1}}"> 
+                </td>
+            </tr>
+        
+        {% endfor %}
+    </table>
+    </form> 
+</div> 
